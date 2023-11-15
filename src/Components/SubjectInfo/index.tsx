@@ -11,6 +11,8 @@ export type SubjectInfoData = {
     exams : string,
     teachers : string,
     advice : string,
+    availability : string,
+    time : string,
 };
 
 function SubjectInfo (props : SubjectInfoData) {
@@ -23,6 +25,8 @@ function SubjectInfo (props : SubjectInfoData) {
             <p>Professores atuais : {props.teachers}</p>
             <p>Ementa : {props.content}</p>
             <p>Dica : {props.advice}</p>
+            <p>Disponibilidade : {props.availability}</p>
+            <p>Horário de aula : {props.time}</p>
         </Container>
     )
 };
