@@ -5,24 +5,26 @@ interface StyledComponentProps {
 };
 
 export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    /* align-content: center; */
+    width: 100%;
+`
+
+export const Parent = styled.div`
     text-align: center;
-    border : 1px solid black;
+    /* border : 1px solid black; */
     border-radius: 8px;
     cursor: pointer;
     user-select: none;
     color: white;
     font-weight: 700;
-`
-
-export const Parent = styled.div`
-    padding: 15px;
-    height: 50px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    height: 70px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 `
 
 export const Wrapper = styled(Parent)<StyledComponentProps>`
-    background-color: ${props => props.backgroundcolor || 'gray'};
+    background-color: ${props => props.backgroundcolor};
 `

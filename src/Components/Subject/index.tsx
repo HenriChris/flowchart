@@ -17,7 +17,6 @@ export type SubjectProps = {
 
 function Subject({ subject } : SubjectProps) {
     
-    /* const [completed, setCompleted] = useState(0); */
     const {completed, setCompleted} = useSubjectContext();
     const { setCurrentSubject } = useSubjectContext();
     const { lockIds, setLockIds } = useSubjectContext();
@@ -53,6 +52,11 @@ function Subject({ subject } : SubjectProps) {
         setCompleted(newCompleted);
     };
 
+    const red = '#FF6666';
+    const green = '#2ecc71';
+    const blue = '#3498db';
+    const gray = '#A0A0A0';
+
     return (
         <Container>
             {isClickable(completed, subject.preRequisites) ? 
@@ -60,7 +64,7 @@ function Subject({ subject } : SubjectProps) {
                     onClick={() => handleClick()}
                     onMouseEnter={() => handleMouseEnter(subject)}
                     onMouseLeave={() => handleMouseLeave()}
-                    backgroundcolor={ lockIds.includes(String(subject.id))? 'blue' : completed[subject.id] ? 'green' : 'red'}
+                    backgroundcolor={ lockIds.includes(String(subject.id))? blue : completed[subject.id] ? green : red}
                 >
                     {subject.name}
                 </Wrapper>
@@ -68,7 +72,7 @@ function Subject({ subject } : SubjectProps) {
                 <Wrapper
                     onMouseEnter={() => handleMouseEnter(subject)}
                     onMouseLeave={() => handleMouseLeave()}
-                    backgroundcolor={ lockIds.includes(String(subject.id))? 'blue' : 'grey' }
+                    backgroundcolor={ lockIds.includes(String(subject.id))? blue : gray }
                 >
                     {subject.name}
                 </Wrapper>
