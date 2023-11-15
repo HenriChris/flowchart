@@ -1,9 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
+import Home from './Pages/Home';
+import SubjectContextProvider from './Contexts/PreRequesites';
 
 function App() {
   return (
-    <div>Hello, world!</div>
+    <SubjectContextProvider>
+      <Home/>
+    </SubjectContextProvider>
   );
 }
 
