@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "./style";
+import { Container, Content, Title } from "./style";
 
 export type SubjectInfoData = {
     id: number,
@@ -18,15 +18,15 @@ export type SubjectInfoData = {
 function SubjectInfo (props : SubjectInfoData) {
     return (
         <Container>
-            <p>Nome : {props.name}</p>
-            <p>Créditos : {props.credits}</p>
-            <p>Nível de dificuldade : {props.difficultyLevel}</p>
-            <p>Estilo de avaliação : {props.exams}</p>
-            <p>Professores atuais : {props.teachers}</p>
-            <p>Ementa : {props.content}</p>
-            <p>Dica : {props.advice}</p>
-            <p>Disponibilidade : {props.availability}</p>
-            <p>Horário de aula : {props.time}</p>
+            <Content><Title>Nome : </Title> {props.name}</Content>
+            <Content><Title>Créditos : </Title> {props.credits === 0 ? '' : props.credits}</Content>
+            <Content><Title>Horário de aula : </Title> {props.time}</Content>
+            <Content><Title>Nível de dificuldade : </Title> {props.difficultyLevel}</Content>
+            <Content><Title>Estilo de avaliação : </Title> {props.exams}</Content>
+            <Content><Title>Professores atuais : </Title> {props.teachers}</Content>
+            <Content><Title>Briga por vaga : </Title> {props.availability}</Content>
+            <Content><Title>Dicas : </Title> {props.advice}</Content>
+            <Content><Title>Ementa : </Title> {props.content}</Content>
         </Container>
     )
 };
