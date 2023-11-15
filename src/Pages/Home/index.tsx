@@ -1,7 +1,7 @@
 import React from 'react';
 import AllSemesters from '../../Components/AllSemesters';
 import SubjectInfo from '../../Components/SubjectInfo';
-import { Container } from './style';
+import { Container, SheetsButton, Wrapper } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 
 function Home() {
@@ -10,19 +10,24 @@ function Home() {
     
     return (
         <Container>
-            <AllSemesters/>
-            <SubjectInfo
-                id={Subjects[currentSubject].subject.id}
-                name={Subjects[currentSubject].subject.name}
-                preRequisites={Subjects[currentSubject].subject.preRequisites}
-                credits={Subjects[currentSubject].subject.credits}
-                content={Subjects[currentSubject].subject.content}
-                difficultyLevel={Subjects[currentSubject].subject.difficultyLevel}
-                exams={Subjects[currentSubject].subject.exams}
-                teachers={Subjects[currentSubject].subject.teachers}
-                advice={Subjects[currentSubject].subject.advice}
-                availability={Subjects[currentSubject].subject.availability}
-                time={Subjects[currentSubject].subject.time}/>
+            <h1>Flowchart</h1>
+            <Wrapper>
+                <AllSemesters/>
+                <SubjectInfo
+                    id={Subjects[currentSubject].subject.id}
+                    name={Subjects[currentSubject].subject.name}
+                    preRequisites={Subjects[currentSubject].subject.preRequisites}
+                    credits={Subjects[currentSubject].subject.credits}
+                    content={Subjects[currentSubject].subject.content}
+                    difficultyLevel={Subjects[currentSubject].subject.difficultyLevel}
+                    exams={Subjects[currentSubject].subject.exams}
+                    teachers={Subjects[currentSubject].subject.teachers}
+                    advice={Subjects[currentSubject].subject.advice}
+                    availability={Subjects[currentSubject].subject.availability}
+                    time={Subjects[currentSubject].subject.time}
+                />
+            </Wrapper>
+            <SheetsButton> Clique aqui para acessar a planilha</SheetsButton>
         </Container>
   );
 }
