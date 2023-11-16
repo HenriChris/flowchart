@@ -4,11 +4,11 @@ import Subject, { SubjectProps } from '../Subject';
 
 export type MateriaPropsArray = SubjectProps[];
 
-type ParentProps = {
+export type SemesterProps = {
     props: SubjectProps[];
 };
 
-function Semester( { props } : ParentProps) {
+function Semester( { props } : SemesterProps) {
     
     return (
         <Container>

@@ -1,3 +1,4 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -22,6 +23,10 @@ export const SheetsButton = styled.button`
     background-color: #FF6666;
     border: none;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px 10px;
     cursor: pointer;
+`
+
+export const DownloadButton = styled(PDFDownloadLink)`
+    padding: 15px;
 `
