@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/flowchart/static/css/main.4152c3d3.css",
-    "main.js": "/flowchart/static/js/main.47a64175.js",
+    "main.js": "/flowchart/static/js/main.1c3b4344.js",
     "index.html": "/flowchart/index.html",
     "main.4152c3d3.css.map": "/flowchart/static/css/main.4152c3d3.css.map",
-    "main.47a64175.js.map": "/flowchart/static/js/main.47a64175.js.map"
+    "main.1c3b4344.js.map": "/flowchart/static/js/main.1c3b4344.js.map"
   },
   "entrypoints": [
     "static/css/main.4152c3d3.css",
-    "static/js/main.47a64175.js"
+    "static/js/main.1c3b4344.js"
   ]
 }
