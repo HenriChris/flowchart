@@ -8,66 +8,93 @@ export type MyDocumentProps = {
 };
 
 const styles = StyleSheet.create({
-  page: {
-    flexDirection: 'column',
-    margin: 20,
+  body: {
+    padding: 20,
+  },
+  h1: {
+    textAlign: 'center',
+    marginBottom: 50,
+  },
+  h2: {
+    fontSize: 16,
   },
   section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
+    marginBottom: 20,
   },
-  heading: {
-    fontSize: 18,
+  completed: {
+    border: '1px solid #ccc',
+    padding: 10,
     marginBottom: 10,
-    fontWeight: 'bold',
-    border: 'solid black 1px' 
+  },
+  notCompleted: {
+    border: '1px solid #ccc',
+    padding: 10,
+    marginBottom: 10,
   },
   subject: {
-    marginBottom: 8,
-  },
-  subjectName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  description: {
+    display: 'flex',
     fontSize: 14,
-    marginBottom: 4,
+    justifyContent: 'space-between',
+    borderBottom: '1px solid #ddd',
+    padding: '8px 0',
+  },
+  subjectLast: {
+    borderBottom: 'none',
+  },
+  completedSubject: {
+    color: '#4CAF50',
+  },
+  notCompletedSubject: {
+    color: '#FF9800',
   },
   credits: {
-    fontSize: 12,
-  },
+    fontSize: 10,
+  }
 });
 
 function MyDocument ( { completedSubjects, notCompletedSubjects } : MyDocumentProps ) {
 
-  const sum: number = completedSubjects.reduce((accumulator, currentValue) => accumulator + currentValue.credits, 0);
+  const sum : number = completedSubjects.reduce((accumulator, currentValue) => accumulator + currentValue.credits, 0);
 
   return (
+
     <Document>
-      <Page size="A4" style={styles.page}>
+    <Page size="A4">
+      <View style={styles.body}>
+        <Text style={styles.h1}>Relatório de disciplinas</Text>
+
         <View style={styles.section}>
-          <Text style={styles.heading}>Disciplinas cursadas</Text>
-          {completedSubjects.map((subject) => (
-            <View key={subject.name} style={styles.subject}>
-              <Text style={styles.subject}>{subject.name}</Text>
-              <Text style={styles.credits}>{`Créditos: ${subject.credits}`}</Text>
+          <View style={styles.notCompleted}>
+            <Text style={styles.h2}>Disciplinas restantes ({135 - sum}/135 créditos)</Text>
+            <View style={styles.subject}>
+              {notCompletedSubjects.map((subject) => (
+                subject.id === 0 ? '' :
+                <View key={subject.name} style={styles.subject} wrap={false}>
+                  <Text style={styles.notCompletedSubject}>{subject.name}</Text>
+                  <Text style={styles.credits}>{`Créditos: ${subject.credits}`}</Text>
+                </View>
+              ))}
             </View>
-          ))}
-          <Text style={styles.credits}>Total : {sum}</Text>
+          </View>
         </View>
+
         <View style={styles.section}>
-          <Text style={styles.heading}>Disciplinas restantes</Text>
-          {notCompletedSubjects.map((subject) => (
-            <View key={subject.name} style={styles.subject}>
-              <Text style={styles.subject}>{subject.name}</Text>
-              <Text style={styles.credits}>{`Créditos: ${subject.credits}`}</Text>
+          <View style={styles.completed}>
+            <Text style={styles.h2}>Disciplinas cursadas ({sum}/135 créditos)</Text>
+            <View style={styles.subject}>
+              {completedSubjects.map((subject) => (
+                <View key={subject.name} style={styles.subject} wrap={false}>
+                  <Text style={styles.completedSubject}>{subject.name}</Text>
+                  <Text style={styles.credits}>{`Créditos: ${subject.credits}`}</Text>
+                </View>
+              ))}
             </View>
-          ))}
+          </View>
         </View>
-      </Page>
-    </Document>
+
+      </View>
+    </Page>
+  </Document>
   )
 };
 
