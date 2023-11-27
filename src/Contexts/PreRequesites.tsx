@@ -6,8 +6,10 @@ type SubjectContextProviderProps = {
 };
 
 type SubjectContextProps = {
-    lockIds : string[],
-    setLockIds : React.Dispatch<React.SetStateAction<string[]>>,
+    preRequisiteIds : string[],
+    setPreRequisiteIds : React.Dispatch<React.SetStateAction<string[]>>,
+    postRequisiteIds : string[],
+    setPostRequisiteIds : React.Dispatch<React.SetStateAction<string[]>>,
     currentSubject : number,
     setCurrentSubject : React.Dispatch<React.SetStateAction<number>>,
     completed : number[],
@@ -18,7 +20,8 @@ export const SubjectContext = createContext<SubjectContextProps | null>(null);
 
 export default function SubjectContextProvider({ children } : SubjectContextProviderProps) {
 
-    const [lockIds, setLockIds] = useState<string[]>([]);
+    const [preRequisiteIds, setPreRequisiteIds] = useState<string[]>([]);
+    const [postRequisiteIds, setPostRequisiteIds] = useState<string[]>([]);
     const [currentSubject, setCurrentSubject] = useState<number>(0);
     const [completed, setCompleted] = useState<number[]>(
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -34,8 +37,10 @@ export default function SubjectContextProvider({ children } : SubjectContextProv
     return (
         <SubjectContext.Provider
             value={{
-                lockIds,
-                setLockIds,
+                preRequisiteIds,
+                setPreRequisiteIds,
+                postRequisiteIds,
+                setPostRequisiteIds,
                 currentSubject,
                 setCurrentSubject,
                 completed,

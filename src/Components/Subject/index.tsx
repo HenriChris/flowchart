@@ -7,8 +7,7 @@ export type SubjectData = {
     name: string,
     shortName: string,
     preRequisites : string[],
-    credits : number,
-    description : string,
+    postRequisites : string[],
 };
 
 export type SubjectProps = {
@@ -19,7 +18,8 @@ function Subject({ subject } : SubjectProps) {
     
     const {completed, setCompleted} = useSubjectContext();
     const { setCurrentSubject } = useSubjectContext();
-    const { lockIds, setLockIds } = useSubjectContext();
+    const { preRequisiteIds, setPreRequisiteIds } = useSubjectContext();
+    const { postRequisiteIds, setPostRequisiteIds } = useSubjectContext();
 
     const [width, setWidth] = React.useState(window.innerWidth);
     
@@ -30,13 +30,15 @@ function Subject({ subject } : SubjectProps) {
     }, []);
 
     function handleMouseEnter (data : SubjectData) {
-        setLockIds(data.preRequisites);
+        setPreRequisiteIds(data.preRequisites);
+        setPostRequisiteIds(data.postRequisites);
         setCurrentSubject(data.id);
     };
 
     function handleMouseLeave () {
         setCurrentSubject(0);
-        setLockIds([]);
+        setPreRequisiteIds([]);
+        setPostRequisiteIds([]);
     };
 
     function isClickable (completed : number[], preRequisites : string[]) {
@@ -64,6 +66,7 @@ function Subject({ subject } : SubjectProps) {
     const red = '#FF6666';
     const green = '#2ecc71';
     const blue = '#3498db';
+    const purple = '#ac34db';
     const gray = '#A0A0A0';
 
     return (
@@ -73,7 +76,7 @@ function Subject({ subject } : SubjectProps) {
                     onClick={() => handleClick()}
                     onMouseEnter={() => handleMouseEnter(subject)}
                     onMouseLeave={() => handleMouseLeave()}
-                    backgroundcolor={ lockIds.includes(String(subject.id))? blue : completed[subject.id] ? green : red}
+                    backgroundcolor={ postRequisiteIds.includes(String(subject.id)) ? purple : (preRequisiteIds.includes(String(subject.id))? blue : completed[subject.id] ? green : red) }
                 >
                     {width > 1279 ? subject.name : subject.shortName}
                 </Wrapper>
@@ -81,7 +84,7 @@ function Subject({ subject } : SubjectProps) {
                 <Wrapper
                     onMouseEnter={() => handleMouseEnter(subject)}
                     onMouseLeave={() => handleMouseLeave()}
-                    backgroundcolor={ lockIds.includes(String(subject.id))? blue : gray }
+                    backgroundcolor={ postRequisiteIds.includes(String(subject.id)) ? purple : (preRequisiteIds.includes(String(subject.id))? blue : gray) }
                 >
                     {width > 1279 ? subject.name : subject.shortName}
                 </Wrapper>

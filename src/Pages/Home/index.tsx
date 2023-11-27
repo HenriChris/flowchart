@@ -4,6 +4,7 @@ import SubjectInfo, { SubjectInfoData } from '../../Components/SubjectInfo';
 import { Container, DownloadButton, Wrapper } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 import MyDocument from '../../Utilities/PDFDocument.tsx/PDFRenderer';
+import Legend from '../../Components/Legend';
 
 function Home() {
     
@@ -29,6 +30,7 @@ function Home() {
             <h1>Flowchart</h1>
             <Wrapper>
                 <AllSemesters/>
+                <Legend/>
                 <SubjectInfo
                     id={Subjects[currentSubject].id}
                     name={Subjects[currentSubject].name}
