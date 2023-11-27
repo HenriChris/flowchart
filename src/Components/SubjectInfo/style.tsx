@@ -8,8 +8,8 @@ export const Container = styled.div`
     width: 82vw;
     height: 70vh;
     @media (max-width: 1279px) {
-        width: 80vw;
-    }
+        height: fit-content;
+    };
 `
 
 export const Content = styled.div`
