@@ -58,6 +58,7 @@ function Subject({ subject } : SubjectProps) {
             }
         });
         setCompleted(newCompleted);
+        localStorage.setItem('newCompleted', JSON.stringify(newCompleted));
     };
 
     const red = '#FF6666';

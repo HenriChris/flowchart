@@ -68,7 +68,7 @@ function MyDocument ( { completedSubjects, notCompletedSubjects } : MyDocumentPr
             <Text style={styles.h2}>Disciplinas restantes ({135 - sum}/135 créditos)</Text>
             <View style={styles.subject}>
               {notCompletedSubjects.map((subject) => (
-                subject.id === 0 ? '' :
+                subject.id === 0 ? <Text key={subject.name}></Text> :
                 <View key={subject.name} style={styles.subject} wrap={false}>
                   <Text style={styles.notCompletedSubject}>{subject.name}</Text>
                   <Text style={styles.credits}>{`Créditos: ${subject.credits}`}</Text>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { createContext } from 'react';
 
 type SubjectContextProviderProps = {
@@ -23,6 +23,13 @@ export default function SubjectContextProvider({ children } : SubjectContextProv
     const [completed, setCompleted] = useState<number[]>(
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     );
+
+    useEffect(() => {
+        const completed = JSON.parse(localStorage.getItem('newCompleted') || '[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]');
+        if (completed) {
+         setCompleted(completed);
+        }
+      }, []);
     
     return (
         <SubjectContext.Provider
