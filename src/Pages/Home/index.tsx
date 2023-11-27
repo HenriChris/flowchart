@@ -1,9 +1,8 @@
 import React from 'react';
 import AllSemesters from '../../Components/AllSemesters';
 import SubjectInfo, { SubjectInfoData } from '../../Components/SubjectInfo';
-import { Container, DownloadButton, SheetsButton, Wrapper } from './style';
+import { Container, DownloadButton, Wrapper } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
-import ReactPDF, { PDFDownloadLink } from '@react-pdf/renderer';
 import MyDocument from '../../Utilities/PDFDocument.tsx/PDFRenderer';
 
 function Home() {
@@ -44,7 +43,6 @@ function Home() {
                     time={Subjects[currentSubject].time}
                 />
             </Wrapper>
-            <SheetsButton> Clique aqui para acessar a planilha</SheetsButton>
             <DownloadButton document={<MyDocument completedSubjects={filterArrayByIds(Subjects, findByIndex(completed, 1))} notCompletedSubjects={filterArrayByIds(Subjects, findByIndex(completed, 0))} />} fileName='Relatório_Disciplinas'> Baixe aqui o relatório </DownloadButton>
         </Container>
   );

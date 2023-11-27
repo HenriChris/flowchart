@@ -5,8 +5,11 @@ export const Container = styled.div`
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 5px;
-    width: 30vw;
+    width: 82vw;
     height: 70vh;
+    @media (max-width: 1279px) {
+        width: 80vw;
+    }
 `
 
 export const Content = styled.div`

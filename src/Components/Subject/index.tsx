@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Wrapper } from './style';
-import { useState } from 'react';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 
 export type SubjectData = {
     id: number,
     name: string,
+    shortName: string,
     preRequisites : string[],
     credits : number,
     description : string,
@@ -20,6 +20,14 @@ function Subject({ subject } : SubjectProps) {
     const {completed, setCompleted} = useSubjectContext();
     const { setCurrentSubject } = useSubjectContext();
     const { lockIds, setLockIds } = useSubjectContext();
+
+    const [width, setWidth] = React.useState(window.innerWidth);
+    
+    React.useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleWindowResize);
+        return () => window.removeEventListener("resize", handleWindowResize);
+    }, []);
 
     function handleMouseEnter (data : SubjectData) {
         setLockIds(data.preRequisites);
@@ -66,7 +74,7 @@ function Subject({ subject } : SubjectProps) {
                     onMouseLeave={() => handleMouseLeave()}
                     backgroundcolor={ lockIds.includes(String(subject.id))? blue : completed[subject.id] ? green : red}
                 >
-                    {subject.name}
+                    {width > 1279 ? subject.name : subject.shortName}
                 </Wrapper>
             :
                 <Wrapper
@@ -74,7 +82,7 @@ function Subject({ subject } : SubjectProps) {
                     onMouseLeave={() => handleMouseLeave()}
                     backgroundcolor={ lockIds.includes(String(subject.id))? blue : gray }
                 >
-                    {subject.name}
+                    {width > 1279 ? subject.name : subject.shortName}
                 </Wrapper>
             }
         </Container>

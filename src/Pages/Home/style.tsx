@@ -12,11 +12,11 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 3vw;
 `
 
-export const SheetsButton = styled.button`
+export const DownloadButton = styled(PDFDownloadLink)`
     font-weight: 600;
     font-size: 20px;
     color: white;
@@ -25,8 +25,8 @@ export const SheetsButton = styled.button`
     border-radius: 5px;
     padding: 20px 10px;
     cursor: pointer;
-`
-
-export const DownloadButton = styled(PDFDownloadLink)`
-    padding: 15px;
+    text-decoration: none;
+    &:hover {
+        opacity: 0.8;
+    }
 `
