@@ -6,24 +6,29 @@ export const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     font-family: 'Inter', sans-serif;
 `
 
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 3vw;
+    align-items: center;
+    width: 90%;
+    gap: 1rem;
+`
+
+export const Header = styled.h1`
+    
 `
 
 export const DownloadButton = styled(PDFDownloadLink)`
-    font-weight: 600;
-    font-size: 20px;
     color: white;
     background-color: #FF6666;
+    font-weight: 700;
+    font-size: 1.25rem;
     border: none;
-    border-radius: 5px;
-    padding: 20px 10px;
+    border-radius: 0.25rem;
+    padding: 1rem 2rem;
     cursor: pointer;
     text-decoration: none;
     &:hover {

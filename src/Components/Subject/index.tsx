@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Container, Wrapper } from './style';
+import { Container } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 
 export type SubjectData = {
@@ -78,14 +78,12 @@ function Subject({ subject } : SubjectProps) {
     };
 
     return (
-        <Container>
-            <Wrapper
-                onClick={() => handleClick(subject)}
-                backgroundcolor={backgroundColor(subject)}
-                outline = {subject.id === currentSubject ? `2px solid ${blue}` : ''}
-            >
-                {width > 1279 ? subject.name : subject.shortName}
-            </Wrapper>
+        <Container
+            onClick={() => handleClick(subject)}
+            backgroundcolor={backgroundColor(subject)}
+            outline = {subject.id === currentSubject ? `2px solid ${blue}` : ''}
+        >
+            {width > 1279 ? subject.name : subject.shortName}
         </Container>
   );
 };

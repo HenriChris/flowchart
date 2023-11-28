@@ -1,7 +1,7 @@
 import React from 'react';
 import AllSemesters from '../../Components/AllSemesters';
 import SubjectInfo, { SubjectInfoData } from '../../Components/SubjectInfo';
-import { Container, DownloadButton, Wrapper } from './style';
+import { Container, DownloadButton, Header, Wrapper } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 import MyDocument from '../../Utilities/PDFDocument.tsx/PDFRenderer';
 import Legend from '../../Components/Legend';
@@ -27,7 +27,7 @@ function Home() {
     
     return (
         <Container>
-            <h1>Flowchart</h1>
+            <Header>Flowchart</Header>
             <Wrapper>
                 <AllSemesters/>
                 <Legend/>
@@ -44,8 +44,8 @@ function Home() {
                     availability={Subjects[currentSubject].availability}
                     time={Subjects[currentSubject].time}
                 />
+                <DownloadButton document={<MyDocument completedSubjects={filterArrayByIds(Subjects, findByIndex(completed, 1))} notCompletedSubjects={filterArrayByIds(Subjects, findByIndex(completed, 0))} />} fileName='Relatório_Disciplinas'> Baixe aqui o relatório </DownloadButton>
             </Wrapper>
-            <DownloadButton document={<MyDocument completedSubjects={filterArrayByIds(Subjects, findByIndex(completed, 1))} notCompletedSubjects={filterArrayByIds(Subjects, findByIndex(completed, 0))} />} fileName='Relatório_Disciplinas'> Baixe aqui o relatório </DownloadButton>
         </Container>
   );
 }

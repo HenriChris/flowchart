@@ -3,20 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
     background-color: #f5f5f5;
     border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-    width: 82vw;
-    height: 70vh;
-    @media (max-width: 1279px) {
-        height: fit-content;
-    };
+    padding: 1rem;
+    border-radius: 0.25rem;
+    height: fit-content;
+    width: 100%;
 `
 
 export const Content = styled.div`
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
 `
 
 export const Title = styled.div`
     font-weight: bold;
-    margin-right: 5px;
 `
