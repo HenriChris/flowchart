@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Container, Wrapper } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 
@@ -14,10 +14,16 @@ export type SubjectProps = {
     subject: SubjectData,
 };
 
+export const red = '#FF6666';
+export const green = '#2ecc71';
+export const blue = '#3498db';
+export const purple = '#ac34db';
+export const gray = '#A0A0A0';
+
 function Subject({ subject } : SubjectProps) {
     
     const {completed, setCompleted} = useSubjectContext();
-    const { setCurrentSubject } = useSubjectContext();
+    const { currentSubject, setCurrentSubject } = useSubjectContext();
     const { preRequisiteIds, setPreRequisiteIds } = useSubjectContext();
     const { postRequisiteIds, setPostRequisiteIds } = useSubjectContext();
 
@@ -29,17 +35,6 @@ function Subject({ subject } : SubjectProps) {
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
 
-    function handleMouseEnter (data : SubjectData) {
-        setPreRequisiteIds(data.preRequisites);
-        setPostRequisiteIds(data.postRequisites);
-        setCurrentSubject(data.id);
-    };
-
-    function handleMouseLeave () {
-        setCurrentSubject(0);
-        setPreRequisiteIds([]);
-        setPostRequisiteIds([]);
-    };
 
     function isClickable (completed : number[], preRequisites : string[]) {
         let unfullfilled = 0;
@@ -51,44 +46,46 @@ function Subject({ subject } : SubjectProps) {
         return unfullfilled === 0;
     };
 
-    function handleClick () {
+    function handleClick (data : SubjectData) {
+        
         const newCompleted = completed.map((element, index) => {
-            if (index === subject.id) {
-              return element ? 0 : 1;
-            } else {
-              return element;
-            }
+            if (index === subject.id) return element ? 0 : 1;
+            else return element;
         });
-        setCompleted(newCompleted);
-        localStorage.setItem('newCompleted', JSON.stringify(newCompleted));
+
+        if (currentSubject === data.id && isClickable(completed, data.preRequisites)) {
+            setCompleted(newCompleted);
+            localStorage.setItem('newCompleted', JSON.stringify(newCompleted));
+        }
+        else {
+            setPreRequisiteIds([]);
+            setPostRequisiteIds([]);
+        };
+
+        setCurrentSubject(data.id);
+
+        setPreRequisiteIds(data.preRequisites);
+        setPostRequisiteIds(data.postRequisites);
+        
     };
 
-    const red = '#FF6666';
-    const green = '#2ecc71';
-    const blue = '#3498db';
-    const purple = '#ac34db';
-    const gray = '#A0A0A0';
+    function backgroundColor (data : SubjectData) {
+        if (postRequisiteIds.includes(String(subject.id))) return purple;
+        else if (preRequisiteIds.includes(String(subject.id))) return blue;
+        else if (completed[data.id]) return green;
+        else if (isClickable(completed, data.preRequisites)) return red;
+        else return gray;
+    };
 
     return (
         <Container>
-            {isClickable(completed, subject.preRequisites) ? 
-                <Wrapper
-                    onClick={() => handleClick()}
-                    onMouseEnter={() => handleMouseEnter(subject)}
-                    onMouseLeave={() => handleMouseLeave()}
-                    backgroundcolor={ postRequisiteIds.includes(String(subject.id)) ? purple : (preRequisiteIds.includes(String(subject.id))? blue : completed[subject.id] ? green : red) }
-                >
-                    {width > 1279 ? subject.name : subject.shortName}
-                </Wrapper>
-            :
-                <Wrapper
-                    onMouseEnter={() => handleMouseEnter(subject)}
-                    onMouseLeave={() => handleMouseLeave()}
-                    backgroundcolor={ postRequisiteIds.includes(String(subject.id)) ? purple : (preRequisiteIds.includes(String(subject.id))? blue : gray) }
-                >
-                    {width > 1279 ? subject.name : subject.shortName}
-                </Wrapper>
-            }
+            <Wrapper
+                onClick={() => handleClick(subject)}
+                backgroundcolor={backgroundColor(subject)}
+                outline = {subject.id === currentSubject ? `2px solid ${blue}` : ''}
+            >
+                {width > 1279 ? subject.name : subject.shortName}
+            </Wrapper>
         </Container>
   );
 };

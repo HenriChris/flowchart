@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface StyledComponentProps {
     backgroundcolor: string;
+    outline: string,
 };
 
 export const Container = styled.div`
@@ -32,4 +33,5 @@ export const Parent = styled.div`
 
 export const Wrapper = styled(Parent)<StyledComponentProps>`
     background-color: ${props => props.backgroundcolor};
+    outline: ${props => props.outline};
 `

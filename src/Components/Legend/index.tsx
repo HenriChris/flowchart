@@ -1,13 +1,8 @@
 import React from "react";
 import { Box, Container, Description, Wrapper } from "./style";
+import { red, blue, gray, purple, green } from "../Subject";
 
 function Legend () {
-
-    const red = '#FF6666';
-    const green = '#2ecc71';
-    const blue = '#3498db';
-    const purple = '#ac34db';
-    const gray = '#A0A0A0';
     
     return (
         <Container>
