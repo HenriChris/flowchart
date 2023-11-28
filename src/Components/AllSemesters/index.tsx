@@ -5,9 +5,9 @@ import { useSubjectContext } from "../../Contexts/PreRequesites";
 
 function AllSemesters() {
 
-    const { currentSubject, setCurrentSubject } = useSubjectContext();
-    const { preRequisiteIds, setPreRequisiteIds } = useSubjectContext();
-    const { postRequisiteIds, setPostRequisiteIds } = useSubjectContext();
+    const { setCurrentSubject } = useSubjectContext();
+    const { setPreRequisiteIds } = useSubjectContext();
+    const { setPostRequisiteIds } = useSubjectContext();
 
     function useOutsideAlerter(ref : React.RefObject<HTMLElement>) {
         useEffect(() => {

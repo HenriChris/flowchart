@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Content, Title } from "./style";
+import { useSubjectContext } from "../../Contexts/PreRequesites";
 
 export type SubjectInfoData = {
     id: number,
@@ -16,8 +17,11 @@ export type SubjectInfoData = {
 };
 
 function SubjectInfo (props : SubjectInfoData) {
+
+    const { darkMode } = useSubjectContext();
+    
     return (
-        <Container>
+        <Container backgroundColor = {darkMode ? '#343739' : '#f5f5f5'} color={darkMode ? '#f5f5f5' : '#000'}>
             <Content><Title>Nome : </Title> {props.name}</Content>
             <Content><Title>Créditos : </Title> {props.credits === 0 ? '' : props.credits}</Content>
             <Content><Title>Horário de aula : </Title> {props.time}</Content>

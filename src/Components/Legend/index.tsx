@@ -14,7 +14,7 @@ function Legend () {
 
             <Wrapper>
                 <Box backgroundcolor={blue}/>
-                <Description>Pré-requisito de</Description>
+                <Description>Pré-requisito</Description>
             </Wrapper>
 
             <Wrapper>
@@ -24,7 +24,7 @@ function Legend () {
 
             <Wrapper>
                 <Box backgroundcolor={purple}/>
-                <Description>É trancado por</Description>
+                <Description>Tranca</Description>
             </Wrapper>
 
             <Wrapper>

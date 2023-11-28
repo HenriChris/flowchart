@@ -14,6 +14,8 @@ type SubjectContextProps = {
     setCurrentSubject : React.Dispatch<React.SetStateAction<number>>,
     completed : number[],
     setCompleted : React.Dispatch<React.SetStateAction<number[]>>,
+    darkMode : number,
+    setDarkMode : React.Dispatch<React.SetStateAction<number>>,
 }
 
 export const SubjectContext = createContext<SubjectContextProps | null>(null);
@@ -26,12 +28,17 @@ export default function SubjectContextProvider({ children } : SubjectContextProv
     const [completed, setCompleted] = useState<number[]>(
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     );
+    const [darkMode, setDarkMode] = useState<number>(0);
 
     useEffect(() => {
         const completed = JSON.parse(localStorage.getItem('newCompleted') || '[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]');
+        const darkMode = JSON.parse(localStorage.getItem('darkMode') || '0');
         if (completed) {
          setCompleted(completed);
-        }
+        };
+        if (darkMode) {
+            setDarkMode(darkMode);
+        };
       }, []);
     
     return (
@@ -44,7 +51,9 @@ export default function SubjectContextProvider({ children } : SubjectContextProv
                 currentSubject,
                 setCurrentSubject,
                 completed,
-                setCompleted
+                setCompleted,
+                darkMode,
+                setDarkMode
             }}>
             {children}
         </SubjectContext.Provider>

@@ -1,15 +1,21 @@
 import React from 'react';
 import AllSemesters from '../../Components/AllSemesters';
 import SubjectInfo, { SubjectInfoData } from '../../Components/SubjectInfo';
-import { Container, DownloadButton, Header, Wrapper } from './style';
+import { Container, DarkModeButton, DownloadButton, Header, Wrapper } from './style';
 import { useSubjectContext } from '../../Contexts/PreRequesites';
 import MyDocument from '../../Utilities/PDFDocument.tsx/PDFRenderer';
 import Legend from '../../Components/Legend';
+import { FiSun } from "react-icons/fi";
+import { FaRegMoon } from "react-icons/fa";
+
+export const dark = '#181a1b';
+export const light = '#FFFFFF';
 
 function Home() {
     
     const { currentSubject } = useSubjectContext();
     const { completed } = useSubjectContext();
+    const { darkMode, setDarkMode } = useSubjectContext();
 
     function findByIndex(array : number[], completed : number) {
         const onesIndices = [];
@@ -24,10 +30,28 @@ function Home() {
     function filterArrayByIds(originalArray : SubjectInfoData[], indices: number[]): SubjectInfoData[] {
         return originalArray.filter(obj => indices.includes(obj.id));
     };
+
+    function handleDarkModeButtonClick () {
+        if (darkMode) {
+            localStorage.setItem('darkMode', JSON.stringify(0));
+        }
+        else {
+            localStorage.setItem('darkMode', JSON.stringify(1));
+        };
+        setDarkMode(darkMode ? 0 : 1);
+    };
     
     return (
-        <Container>
-            <Header>Flowchart</Header>
+        <Container backgroundColor = {darkMode ? dark : light} color={darkMode ? light : '#000'}>
+            <Header>
+                Flowchart
+                <DarkModeButton onClick={() => handleDarkModeButtonClick()}>
+                    {darkMode ?
+                        <FiSun /> :
+                        <FaRegMoon />
+                    }
+                </DarkModeButton>
+            </Header>
             <Wrapper>
                 <AllSemesters/>
                 <Legend/>

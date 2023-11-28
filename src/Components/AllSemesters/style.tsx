@@ -11,5 +11,4 @@ export const Container = styled.div`
         gap: 0.5rem;
         clip-path: polygon(0% 0%, 0% 100%, 34% 100%, 34% 86%, 84% 86%, 84% 44%, 100% 44%, 100% 0%);
     };
-    background-color: blue ;
 `
