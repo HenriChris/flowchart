@@ -83,7 +83,7 @@ const Periodo5 = [
 ];
 const Periodo6 = [
     { subject: { name: 'Programação Concorrente', shortName: 'Comp Conc', id : 29, preRequisites : ['17', '27'], postRequisites : [] }},
-    { subject: { name: 'Redes de Computadores I', shortName: 'Redes', id : 30, preRequisites : ['1', '23'], postRequisites : ['34'] }},
+    { subject: { name: 'Redes de Computadores I', shortName: 'Redes', id : 30, preRequisites : ['1', '23'], postRequisites : ['35'] }},
     { subject: { name: 'Introdução ao Aprendizado de Máquina', shortName: 'IA', id : 31, preRequisites : ['20', '23'], postRequisites : [] }},
     { subject: { name: 'Otimização', shortName: 'Otim', id : 32, preRequisites : ['13', '16'], postRequisites : [] }},
     { subject: { name: 'Lógica e Computabilidade', shortName: 'Log', id : 33, preRequisites : ['24'], postRequisites : [] }},
