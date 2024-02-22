@@ -46,24 +46,24 @@ export default AllSemesters;
 const Periodo1 = [
     { subject: { name: 'Programação de Computadores I', shortName: 'Comp I', id : 1, preRequisites : [], postRequisites : ['7', '9', '16', '30'] }},
     { subject: { name: 'Processo de Software', shortName: 'Proc Sof', id : 2, preRequisites : [], postRequisites : ['9', '15'] }},
-    { subject: { name: 'Fundamentos de Sistemas de Computação', shortName: 'FSC', id : 3, preRequisites : [], postRequisites : ['9', '16', '19'] }},
+    { subject: { name: 'Fundamentos de Sistemas de Computação', shortName: 'FSC', id : 3, preRequisites : [], postRequisites : ['9', '16', '19', '30'] }},
     { subject: { name: 'Números Inteiros e Criptografia', shortName: 'Cripto', id : 4, preRequisites : [], postRequisites : ['10'] }},
     { subject: { name: 'Projeto de Carreira', shortName: 'Proj Car', id : 5, preRequisites : [], postRequisites : ['11'] }},
     { subject: { name: 'Introdução ao Pensamento Dedutivo', shortName: 'IPD', id : 6, preRequisites : [], postRequisites : [] }},
 ];
 const Periodo2 = [ 
-    { subject: { name: 'Programação de Computadores II', shortName: 'Comp II', id : 7, preRequisites : ['1'], postRequisites : ['14', '17', '19', '24'] }},
+    { subject: { name: 'Programação de Computadores II', shortName: 'Comp II', id : 7, preRequisites : ['1'], postRequisites : ['14', '15', '17', '19', '24'] }},
     { subject: { name: 'Organização de Dados', shortName: 'Org Dados', id : 8, preRequisites : [], postRequisites : [] }},
     { subject: { name: 'Projeto Prático', shortName: 'Proj Prat', id : 9, preRequisites : ['1', '2', '3'], postRequisites : [] }},
     { subject: { name: 'Matemática Discreta', shortName: 'Mat Disc', id : 10, preRequisites : ['4'], postRequisites : ['24', '28'] }},
     { subject: { name: 'Habilidades Sociais para o Trabalho', shortName: 'Hab Soc', id : 11, preRequisites : ['5'], postRequisites : ['21'] }},
-    { subject: { name: 'Cálculo Infinitesimal I', shortName: 'Calc I', id : 12, preRequisites : [], postRequisites : ['18'] }},
+    { subject: { name: 'Cálculo Infinitesimal I', shortName: 'Calc I', id : 12, preRequisites : [], postRequisites : ['16', '18'] }},
 ];
 const Periodo3 = [
     { subject: { name: 'Álgebra Linear Algorítmica', shortName: 'ALA', id : 13, preRequisites : [], postRequisites : ['20', '25', '26', '32'] }},
     { subject: { name: 'Estrutura de Dados', shortName: 'ED', id : 14, preRequisites : ['7'], postRequisites : ['22', '28'] }},
-    { subject: { name: 'Introdução à Modelagem de Sistemas', shortName: 'IMS', id : 15, preRequisites : ['2'], postRequisites : [] }},
-    { subject: { name: 'Introdução à Computação Numérica', shortName: 'ICN', id : 16, preRequisites : ['1', '3'], postRequisites : ['20', '32'] }},
+    { subject: { name: 'Introdução à Modelagem de Sistemas', shortName: 'IMS', id : 15, preRequisites : ['2', '7'], postRequisites : [] }},
+    { subject: { name: 'Introdução à Computação Numérica', shortName: 'ICN', id : 16, preRequisites : ['1', '3', '12'], postRequisites : ['20', '32'] }},
     { subject: { name: 'Programação Orientada a Objetos', shortName: 'POO', id : 17, preRequisites : ['7'], postRequisites : ['29'] }},
     { subject: { name: 'Cálculo Integ e Diferencial II', shortName: 'Calc II', id : 18, preRequisites : ['12'], postRequisites : ['23', '26'] }},
 ];
@@ -83,7 +83,7 @@ const Periodo5 = [
 ];
 const Periodo6 = [
     { subject: { name: 'Programação Concorrente', shortName: 'Comp Conc', id : 29, preRequisites : ['17', '27'], postRequisites : [] }},
-    { subject: { name: 'Redes de Computadores I', shortName: 'Redes', id : 30, preRequisites : ['1', '23'], postRequisites : ['35'] }},
+    { subject: { name: 'Redes de Computadores I', shortName: 'Redes', id : 30, preRequisites : ['1', '3', '23'], postRequisites : ['35'] }},
     { subject: { name: 'Introdução ao Aprendizado de Máquina', shortName: 'IA', id : 31, preRequisites : ['20', '23'], postRequisites : [] }},
     { subject: { name: 'Otimização', shortName: 'Otim', id : 32, preRequisites : ['13', '16'], postRequisites : [] }},
     { subject: { name: 'Lógica e Computabilidade', shortName: 'Log', id : 33, preRequisites : ['24'], postRequisites : [] }},
