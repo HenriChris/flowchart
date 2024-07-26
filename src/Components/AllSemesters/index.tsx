@@ -49,27 +49,27 @@ const Periodo1 = [
     { subject: { name: 'Fundamentos de Sistemas de Computação', shortName: 'FSC', id : 3, preRequisites : [], postRequisites : ['9', '16', '19', '30'] }},
     { subject: { name: 'Números Inteiros e Criptografia', shortName: 'Cripto', id : 4, preRequisites : [], postRequisites : ['10'] }},
     { subject: { name: 'Projeto de Carreira', shortName: 'Proj Car', id : 5, preRequisites : [], postRequisites : ['11'] }},
-    { subject: { name: 'Introdução ao Pensamento Dedutivo', shortName: 'IPD', id : 6, preRequisites : [], postRequisites : [] }},
+    { subject: { name: 'Introdução ao Pensamento Dedutivo', shortName: 'IPD', id : 6, preRequisites : [], postRequisites : ['13'] }},
 ];
 const Periodo2 = [ 
     { subject: { name: 'Programação de Computadores II', shortName: 'Comp II', id : 7, preRequisites : ['1'], postRequisites : ['14', '15', '17', '19', '24'] }},
     { subject: { name: 'Organização de Dados', shortName: 'Org Dados', id : 8, preRequisites : [], postRequisites : [] }},
     { subject: { name: 'Projeto Prático', shortName: 'Proj Prat', id : 9, preRequisites : ['1', '2', '3'], postRequisites : [] }},
-    { subject: { name: 'Matemática Discreta', shortName: 'Mat Disc', id : 10, preRequisites : ['4'], postRequisites : ['24', '28'] }},
+    { subject: { name: 'Matemática Discreta', shortName: 'Mat Disc', id : 10, preRequisites : ['4'], postRequisites : ['13', '24', '28'] }},
     { subject: { name: 'Habilidades Sociais para o Trabalho', shortName: 'Hab Soc', id : 11, preRequisites : ['5'], postRequisites : ['21'] }},
     { subject: { name: 'Cálculo Infinitesimal I', shortName: 'Calc I', id : 12, preRequisites : [], postRequisites : ['16', '18'] }},
 ];
 const Periodo3 = [
-    { subject: { name: 'Álgebra Linear Algorítmica', shortName: 'ALA', id : 13, preRequisites : [], postRequisites : ['20', '25', '26', '32'] }},
+    { subject: { name: 'Álgebra Linear Algorítmica', shortName: 'ALA', id : 13, preRequisites : ['6', '10'], postRequisites : ['20', '25', '26', '32'] }},
     { subject: { name: 'Estrutura de Dados', shortName: 'ED', id : 14, preRequisites : ['7'], postRequisites : ['22', '28'] }},
     { subject: { name: 'Introdução à Modelagem de Sistemas', shortName: 'IMS', id : 15, preRequisites : ['2', '7'], postRequisites : [] }},
     { subject: { name: 'Introdução à Computação Numérica', shortName: 'ICN', id : 16, preRequisites : ['1', '3', '12'], postRequisites : ['20', '32'] }},
     { subject: { name: 'Programação Orientada a Objetos', shortName: 'POO', id : 17, preRequisites : ['7'], postRequisites : ['29'] }},
-    { subject: { name: 'Cálculo Integ e Diferencial II', shortName: 'Calc II', id : 18, preRequisites : ['12'], postRequisites : ['23', '26'] }},
+    { subject: { name: 'Cálculo Integ e Diferencial II', shortName: 'Calc II', id : 18, preRequisites : ['12'], postRequisites : ['20', '23', '26'] }},
 ];
 const Periodo4 = [    
     { subject: { name: 'Arquitetura de Computadores e Sistemas Operacionais', shortName: 'Arq Comp SO', id : 19, preRequisites : ['3', '7'], postRequisites : ['27'] }},
-    { subject: { name: 'Computação Científica e Análise de Dados', shortName: 'Co CA Da', id : 20, preRequisites : ['13', '16'], postRequisites : ['31'] }},
+    { subject: { name: 'Computação Científica e Análise de Dados', shortName: 'Co CA Da', id : 20, preRequisites : ['13', '16', '18'], postRequisites : ['31'] }},
     { subject: { name: 'Tecnologia e Sociedade', shortName: 'Tec Soc', id : 21, preRequisites : ['11'], postRequisites : ['34'] }},
     { subject: { name: 'Banco de Dados I', shortName: 'BD', id : 22, preRequisites : ['14'], postRequisites : [] }},
     { subject: { name: 'Estatística e Probabilidade', shortName: 'Prob Est', id : 23, preRequisites : ['18'], postRequisites : ['25', '30', '31'] }},
