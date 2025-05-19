@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.container.dark {
+  color: #f5f5f5;
+  background-color: #343739;
+}
+
+.container.light {
+  color: #000;
+  background-color: #f5f5f5;
+}
+
+.content {
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-weight: bold;
+}

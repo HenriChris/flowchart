@@ -1,11 +1,10 @@
-import React from 'react';
-import Home from './Pages/Home';
-import SubjectContextProvider from './Contexts/PreRequesites';
+import SubjectContextProvider from './contexts/Subject.context';
+import { Home } from './pages/Home/Home.page';
 
 function App() {
   return (
     <SubjectContextProvider>
-      <Home/>
+      <Home />
     </SubjectContextProvider>
   );
 }

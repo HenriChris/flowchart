@@ -1,0 +1,92 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+.container.dark {
+  background-color: black;
+  color: white;
+}
+
+.container.white {
+  background-color: white;
+  color: black;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 5%;
+  gap: 1rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.button.dark {
+  color: white;
+}
+
+.button.light {
+  color: black;
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.info {
+  margin-left: auto;
+  /* margin-right: 2em; */
+}
+
+.legend-container {
+  width: 100%;
+  gap: 0.5rem;
+  display: flex;
+  text-wrap: nowrap;
+  @media (max-width: 1279px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.legend-box {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
