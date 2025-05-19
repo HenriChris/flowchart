@@ -17,6 +17,8 @@
   border-radius: 0.5em;
   max-width: 600px;
   width: 90%;
+  max-height: fit-content;
+  height: 80%;
   box-sizing: border-box;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, opacity 0.3s ease;

@@ -55,15 +55,13 @@ export function Home() {
   return (
     <div className={`${styles.container} ${darkMode === "dark" ? styles.dark : styles.light}`}>
       <header className={styles.header}>
-        <div className={styles['header-center']}>
-          <h1>Flowchart</h1>
-          <button onClick={handleDarkModeButtonClick} className={`${styles.button} ${darkMode === "dark" ? styles.dark : styles.light}`}>
-            {darkMode === "dark" ?
-              <FiSun className={styles.icon} /> :
-              <FaRegMoon className={styles.icon} />
-            }
-          </button>
-        </div>
+        <h1>Flowchart</h1>
+        <button onClick={handleDarkModeButtonClick} className={`${styles.button} ${darkMode === "dark" ? styles.dark : styles.light}`}>
+          {darkMode === "dark" ?
+            <FiSun className={styles.icon} /> :
+            <FaRegMoon className={styles.icon} />
+          }
+        </button>
         <button onClick={() => setIsModalOpen(true)} className={`${styles.button} ${styles.info} ${darkMode === "dark" ? styles.dark : styles.light}`}>
           {darkMode === "dark" ?
             <IoMdInformationCircle className={styles.icon} /> :
